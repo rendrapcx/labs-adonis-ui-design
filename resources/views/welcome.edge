@@ -1,35 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdonisJS - A fully featured web framework for Node.js</title>
-  @entryPointStyles('app')
-  @entryPointScripts('app')
-</head>
-<body>
+@layout('layouts/default')
 
-  <main>
-    <div>
-      <h1 class="title"> It Works! </h1>
-      <p class="subtitle">
-        Congratulations, you have just created your first AdonisJS app.
-      </p>
-
-      <ul>
-        <li>
-          The route for this page is defined inside <code>start/routes.ts</code> file
-        </li>
-
-        <li>
-          You can update this page by editing <code>resources/views/welcome.edge</code> file
-        </li>
-
-        <li>
-          If you run into problems, you can reach us on <a href="https://discord.gg/vDcEjq6?">Discord</a> or the <a href="https://forum.adonisjs.com/">Forum</a>.
-        </li>
-      </ul>
-    </div>
-  </main>
-</body>
-</html>
+@section('content')
+<div x-data="{ open: false }" class="flex flex-col justify-center items-center">
+  <div class="">
+    <h1 class="text-6xl text-red-500"> It Works! </h1>
+  </div>
+  <div class="mt-4">
+    <button class="px-4 py-2 rounded-md bg-green-100 hover:bg-green-300" @click="open = ! open">
+      <template x-if="open">
+        <span>Close</span>
+      </template>
+      <template x-if="!open">
+        <span>Detail</span>
+      </template>
+    </button>
+  </div>
+  <div x-show="open" class="px-4 py-4 mt-8 rounded-lg bg-slate-100">
+    <p class="text-2xl">
+      Congratulations, you have just created your first AdonisJS app.
+    </p>
+    <ul class="mt-4">
+      <li>
+        The route for this page is defined inside <code>start/routes.ts</code> file
+      </li>
+      <li>
+        You can update this page by editing <code>resources/views/welcome.edge</code> file
+      </li>
+      <li>
+        If you run into problems, you can reach us on <a href="https://discord.gg/vDcEjq6?">Discord</a> or the <a
+          href="https://forum.adonisjs.com/">Forum</a>.
+      </li>
+    </ul>
+  </div>
+</div>
+@endsection
