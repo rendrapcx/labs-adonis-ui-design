@@ -1,0 +1,148 @@
+<aside x-cloak x-data="{active: '{{active}}' }">
+  <div
+    class="flex flex-col w-64 h-screen overscroll-y-auto py-8 bg-white border-r dark:bg-gray-900 dark:border-gray-700">
+    {{--  BRAND  --}}
+    <h2 class="text-3xl font-semibold text-center text-gray-800 dark:text-white">-:{ RPCX }:-</h2>
+
+    {{--  USER FOTO NAME EMAIL  --}}
+    <div class="flex flex-col items-center mt-6 -mx-2">
+      <img class="object-cover w-24 h-24 mx-2 rounded-full"
+        {{--  src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"  --}}
+        src="https://i.imgur.com/4Qa801d.jpg" alt="avatar">
+      <h4 class="mx-2 mt-2 font-medium text-gray-800 dark:text-gray-200 hover:underline cursor-pointer">{{sbName}}</h4>
+      <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400 hover:underline cursor-pointer">
+        {{sbEmail}}</p>
+      <p>
+    </div>
+
+    {{--  SIDEBAR MENU  --}}
+    <div class="flex flex-col justify-between flex-1 mt-6">
+      <nav>
+        {{--  DASHBOARD  --}}
+        <div>
+          <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+          dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'dashboard' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.dashboard')}}">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19 11H5M19 11C20.1046 11 21 11.8954 21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V13C3 11.8954 3.89543 11 5 11M19 11V9C19 7.89543 18.1046 7 17 7M5 11V9C5 7.89543 5.89543 7 7 7M7 7V5C7 3.89543 7.89543 3 9 3H15C16.1046 3 17 3.89543 17 5V7M7 7H17"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="mx-4 font-medium">Dashboard</span>
+          </a>
+        </div>
+
+        {{--  ACCOUNTS  --}}
+        <div>
+          <a class=" flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+            dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'account' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.profile')}}">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 14C8.13401 14 5 17.134 5 21H19C19 17.134 15.866 14 12 14Z" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="mx-4 font-medium">Accounts</span>
+          </a>
+        </div>
+
+        {{--  Grade  --}}
+        <div>
+          <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+          dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'grade' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.grade')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
+            </svg>
+            <span class="mx-4 font-medium">Grade</span>
+          </a>
+        </div>
+
+        {{--  students  --}}
+        <div>
+          <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+          dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'students' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.students')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+            </svg>
+            <span class="mx-4 font-medium">Students</span>
+          </a>
+        </div>
+
+        {{--  Calendar  --}}
+        <div>
+          <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+          dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'calendar' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.schedule')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+            </svg>
+            <span class="mx-4 font-medium">Calendar</span>
+          </a>
+        </div>
+
+        {{--  Modules  --}}
+        <div>
+          <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+          dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'syllabus' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.syllabus')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+            </svg>
+            <span class="mx-4 font-medium">Modules</span>
+          </a>
+        </div>
+
+        {{--  Classes  --}}
+        <div>
+          <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+          dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'classes' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.class')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
+            </svg>
+            <span class="mx-4 font-medium">Classes</span>
+          </a>
+        </div>
+
+        {{--  Settings  --}}
+        <div>
+          <a class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform
+          dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700"
+            :class="active == 'settings' ? 'bg-gray-100 dark:bg-gray-800 dark:text-gray-200' : ''"
+            href="{{route('cs.settings')}}">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10.3246 4.31731C10.751 2.5609 13.249 2.5609 13.6754 4.31731C13.9508 5.45193 15.2507 5.99038 16.2478 5.38285C17.7913 4.44239 19.5576 6.2087 18.6172 7.75218C18.0096 8.74925 18.5481 10.0492 19.6827 10.3246C21.4391 10.751 21.4391 13.249 19.6827 13.6754C18.5481 13.9508 18.0096 15.2507 18.6172 16.2478C19.5576 17.7913 17.7913 19.5576 16.2478 18.6172C15.2507 18.0096 13.9508 18.5481 13.6754 19.6827C13.249 21.4391 10.751 21.4391 10.3246 19.6827C10.0492 18.5481 8.74926 18.0096 7.75219 18.6172C6.2087 19.5576 4.44239 17.7913 5.38285 16.2478C5.99038 15.2507 5.45193 13.9508 4.31731 13.6754C2.5609 13.249 2.5609 10.751 4.31731 10.3246C5.45193 10.0492 5.99037 8.74926 5.38285 7.75218C4.44239 6.2087 6.2087 4.44239 7.75219 5.38285C8.74926 5.99037 10.0492 5.45193 10.3246 4.31731Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="mx-4 font-medium">Settings</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+</aside>

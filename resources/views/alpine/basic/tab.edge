@@ -1,0 +1,30 @@
+@layout('layouts/basic')
+
+
+@section('content')
+{{--  Tabs basic  --}}
+{{--  x-bind:class or :class  --}}
+<section class="m-8">
+  <div x-data="{
+    tabs: ['Home', 'Users', 'Settings', 'Orders'],
+    activeTab: 'Home'
+  }">
+    <div class="flex">
+      <template x-for="tab in tabs">
+        <a @click="activeTab = tab" x-text="tab" class="py-2 px-3 bg-white cursor-pointer border"
+          :class="{'border-purple-500': activeTab === tab, 'text-blue-500': activeTab === tab}"></a>
+      </template>
+    </div>
+    <div class="py-2 px-3 bg-white border">
+      <!-- Home -->
+      <div x-show="activeTab === 'Home'">Home Content</div>
+      <!-- Users -->
+      <div x-show="activeTab === 'Users'">Users Content</div>
+      <!-- Settings -->
+      <div x-show="activeTab === 'Settings'">Settings</div>
+      <!-- Orders -->
+      <div x-show="activeTab === 'Orders'">Orders</div>
+    </div>
+  </div>
+</section>
+@endsection

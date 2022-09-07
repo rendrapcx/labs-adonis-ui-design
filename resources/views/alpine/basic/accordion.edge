@@ -1,0 +1,38 @@
+@layout('layouts/basic')
+
+@section('content')
+<section class="m-8">
+  <div x-data="{
+      items: [
+          {title: 'Item 1', body: 'Body 1'},
+          {title: 'Item 2', body: 'Body 2'},
+          {title: 'Item 3', body: 'Body 3'},
+          {title: 'Item 4', body: 'Body 4'},
+      ],
+      activeItem: null,
+      selectItem(item) {
+          if (this.activeItem === item) {
+              this.activeItem = null
+          } else {
+              this.activeItem = item
+          }
+      }
+    }">
+    <template x-for="item in items">
+      <div>
+        <div @click="selectItem(item)"
+          class="py-1 px-2 bg-gray-50 border cursor-pointer hover:text-blue-400 transition-all font-semibold flex justify-between items-center"
+          :class="{'bg-green-50': activeItem === item}">
+          <span x-text="item.title"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-all"
+            :class="{'rotate-90': activeItem === item}" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+        <div x-show="activeItem === item" x-transition x-html="item.body" class="p-2 bg-white border"></div>
+      </div>
+    </template>
+  </div>
+</section>
+@endsection

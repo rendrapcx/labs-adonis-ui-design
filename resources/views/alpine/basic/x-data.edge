@@ -1,0 +1,47 @@
+@layout('layouts/basic')
+
+
+@section('content')
+{{--  x-data basic  --}}
+<section class="m-8">
+  <div x-data="{ open: true }">
+    <button class="border p-1" @click="open = ! open">Simple</button>
+
+    <div x-show="open" @click.outside="open = false" class="bg-green-50">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ex veritatis. Iusto ullam adipisci facere,
+      tempore id nesciunt consectetur pariatur deleniti mollitia amet? Possimus, cum error maiores quod facere cumque?
+    </div>
+  </div>
+</section>
+
+{{--  Methods  --}}
+<section class="m-8">
+  <div x-data="{ open: true, toggle() { this.open = ! this.open } }">
+    <button class="border p-1" @click="toggle()">Methods</button>
+    <div x-show="open" class="bg-yellow-50">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt natus quas magni voluptates, esse
+      ipsam
+      inventore
+      earum exercitationem commodi distinctio. Quidem, soluta repellendus libero ipsa officiis ea doloremque
+      minus
+      saepe!
+    </div>
+  </div>
+</section>
+
+{{--  Getter Setter  --}}
+<section class="m-8">
+  <div x-data="{
+    open: false,
+    get isOpen() { return this.open },
+    toggle() { this.open = ! this.open },
+  }">
+    <button class="border p-1" @click="toggle()">Getter Setter</button>
+
+    <div x-show="isOpen" class="bg-green-50">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt delectus est eos ipsa. Dolorum quae, ipsa
+      possimus numquam architecto dolor veniam fugit voluptate exercitationem consectetur vero at? Repellat, vitae.
+    </div>
+  </div>
+</section>
+@endsection
