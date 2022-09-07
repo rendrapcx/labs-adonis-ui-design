@@ -1,3 +1,4 @@
 # ETA UI Design
-Edge Tailwind Alpine
-
+- labs untuk implementasi ui/ux design ke edge templating
+- base Edge Tailwind Alpine
+- 
